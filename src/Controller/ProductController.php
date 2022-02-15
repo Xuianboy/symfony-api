@@ -77,27 +77,6 @@ class ProductController extends AbstractController
         $entityManager->merge($product_object);
         $entityManager->flush();
 
-        /*$arrJson = $request->toArray();
-        $entityManager = $doctrine->getManager();
-
-        $product = new Product();
-        if (isset($arrJson)) {
-            $product->setName($arrJson['name']);
-            $product->setDescription($arrJson['description']);
-            $product->setPrice($arrJson['price']);
-            $product->setCategory($arrJson['category_id']);
-
-            $entityManager->persist($product);
-            $entityManager->flush();
-
-            $errors = $validator->validate($product);
-            if(count($errors) > 1){
-                return new Response((string) $errors,400);
-            }
-            return new Response('Create product! with Id:='.$product->getId(),Response::HTTP_CREATED);
-        }else{
-            return new Response('Errors in data, please again try',Response::HTTP_BAD_REQUEST);
-        }*/
         return new Response('Created new product!',Response::HTTP_CREATED);
     }
 
